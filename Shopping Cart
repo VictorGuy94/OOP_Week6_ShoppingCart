@@ -1,0 +1,61 @@
+ static void Main(string[] args)
+        {
+            List<Fruit> shoppingCart = new List<Fruit>();
+            Fruit Orange = new Fruit(0.25, "Orange");
+            Fruit Apple = new Fruit(0.6, "Apple");
+            double total = 0;
+
+            bool stop = false;
+            do
+            {
+                Console.WriteLine("What do you want ?\n 1. Apple \n 2. Orange \n 3. Stop");
+                string value = Console.ReadLine();
+                switch (value)
+                {
+                    case "1":
+                        shoppingCart.Add(Orange);
+                        break;
+
+                    case "2":
+                        shoppingCart.Add(Apple);
+                        break;
+
+                    case "3":
+                        stop = true;
+                        break;
+
+                }
+
+                
+                for (int i = 0; i < shoppingCart.Count; i++)
+                {
+                    total += shoppingCart[i].Price;
+                }
+                Console.WriteLine("The total is " + total);
+                Console.WriteLine();
+            } while (stop == false);
+
+            Console.ReadKey();
+        }
+        
+        class Fruit
+    {
+        private double price;
+        private string name;
+        public Fruit(double price, string name)
+        {
+            this.price = price;
+            this.name = name;
+        }
+        public double Price
+        {
+            get
+            {
+                return this.price;
+            }
+            set
+            {
+                this.price = value;
+            }
+        }
+    }
